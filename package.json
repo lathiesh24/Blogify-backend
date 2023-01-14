@@ -5,9 +5,9 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node app.js"
+    "start": "nodemon app.js"
   },
-  "author": "",
+  "author": "Lathiesh Mahendran",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
