@@ -8,12 +8,15 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/user", router);
 app.use("/api/blog", blogRouter);
+
+const PORT = process.env.PORT || 5000;
+
 mongoose
-  .connect(
-    "mongodb+srv://lathieshblogifymern:pass1234@cluster0.i7cqngr.mongodb.net/test"
-  )
-  .then(() => app.listen(5000))
+  .connect(process.env.CONNECTION_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() =>
-    console.log("Connected TO Database and Listening TO Localhost 5000")
+    app.listen(PORT, () => console.log(`Server listening on port : ${PORT}`))
   )
-  .catch((err) => console.log(err));
+  .catch((error) => console.log(error.message));
